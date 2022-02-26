@@ -1,7 +1,6 @@
-import Stories from './Stories'
-import { useGlobalContext } from './context'
 import SearchForm from './SearchForm'
 import Buttons from './Buttons'
+import Stories from './Stories'
 
 function App() {
   return (

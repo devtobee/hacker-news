@@ -2,13 +2,13 @@ import React from 'react'
 import { useGlobalContext } from './context'
 
 export default function Stories() {
-  const { news, loading, handleClick } = useGlobalContext()
+  const { news, loading, removeItem } = useGlobalContext()
   if (loading) {
     return <div className='loading'></div>
   }
   return (
     <section className='stories'>
-      {news.hits.map((item) => {
+      {news.map((item) => {
         const { title, url, num_comments, points, author, objectID } = item
         return (
           <article className='story' key={objectID}>
@@ -20,10 +20,7 @@ export default function Stories() {
             <a href={url} className='read-link'>
               Read More
             </a>
-            <button
-              className='remove-btn'
-              onClick={() => handleClick(objectID)}
-            >
+            <button className='remove-btn' onClick={() => removeItem(objectID)}>
               remove
             </button>
           </article>

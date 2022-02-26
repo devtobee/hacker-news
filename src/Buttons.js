@@ -1,12 +1,15 @@
 import React from 'react'
 import { useGlobalContext } from './context'
+
 const Buttons = () => {
-  const { nextPage, prevPage, page } = useGlobalContext()
+  const { handlePage, page, nbPages } = useGlobalContext()
   return (
     <div className='btn-container'>
-      <button onClick={prevPage}>prev</button>
-      <p>{page} of 50 </p>
-      <button onClick={nextPage}>next</button>
+      <button onClick={() => handlePage('dec')}>prev</button>
+      <p>
+        {page + 1} of {nbPages}
+      </p>
+      <button onClick={() => handlePage('inc')}>next</button>
     </div>
   )
 }

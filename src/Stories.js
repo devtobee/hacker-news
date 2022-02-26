@@ -2,13 +2,13 @@ import React from 'react'
 import { useGlobalContext } from './context'
 
 export default function Stories() {
-  const { news, loading, removeItem } = useGlobalContext()
+  const { hits, loading, removeItem } = useGlobalContext()
   if (loading) {
     return <div className='loading'></div>
   }
   return (
     <section className='stories'>
-      {news.map((item) => {
+      {hits.map((item) => {
         const { title, url, num_comments, points, author, objectID } = item
         return (
           <article className='story' key={objectID}>
